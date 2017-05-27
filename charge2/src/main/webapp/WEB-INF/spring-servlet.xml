@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="defaultCharset" value="UTF-8"/>
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- 导入其他的配置文件 -->
+	<import resource="classpath:spring-*.xml"/>
+	<!-- 配置spring mvc信息 -->
+	<!--配置页面的位置 -->
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp"/>
+	</mvc:view-resolvers>
+
+</beans>
