@@ -4,6 +4,6 @@ create table charge(
   charge_money double,
   charge_type varchar(30),
   charge_date varchar(19),
-  constraint charge_fk foreign key(charge_sid) references students(stud_id)
+  constraint charge_fk foreign key(charge_sid) references students(stud_uuid)
 ); 
 
